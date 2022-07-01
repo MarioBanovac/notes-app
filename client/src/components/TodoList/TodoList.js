@@ -4,7 +4,7 @@ import { faCheck, faX } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 export default function TodoList(props) {
-  const { className, todos, filterTodos,updateTodos } = props;
+  const { className, todos, filterTodos, updateTodos } = props;
 
   const [isEditing, setIsEditing] = useState(false);
   // ovo koristimo da editiramo samo todo na koji smo kliknuli
@@ -20,7 +20,7 @@ export default function TodoList(props) {
     await axios.put(`${process.env.REACT_APP_URL}/api/todos/${id}`, {
       title: value,
     });
-    updateTodos(id,value)
+    updateTodos(id, value);
   };
 
   const handleChange = ({ target: { value } }) => {
