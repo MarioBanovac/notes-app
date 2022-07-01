@@ -23,17 +23,6 @@ function App() {
     setTodos([...todos.filter(({ _id }) => _id !== id)]);
   };
 
-  const updateTodos = (id, value) => {
-    setTodos([
-      ...todos.map((todo) => {
-        if (todo._id === id) {
-          todo.title = value;
-        }
-        return todo;
-      }),
-    ]);
-  };
-
   useEffect(() => {
     getTodos();
   }, []);
@@ -43,11 +32,7 @@ function App() {
       <h1>Notes App</h1>
       <StyledTodoInput addTodo={addTodo} />
       {todos.length > 0 && (
-        <StyledTodoList
-          filterTodos={filterTodos}
-          updateTodos={updateTodos}
-          todos={todos}
-        />
+        <StyledTodoList filterTodos={filterTodos} todos={todos} />
       )}
     </div>
   );
