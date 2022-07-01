@@ -7,7 +7,6 @@ export default function TodoInput(props) {
   const [todo, setTodo] = useState("");
 
   const handleSubmit = (e) => {
-    console.log('sada')
     e.preventDefault();
     addTodo(todo);
     setTodo("");
