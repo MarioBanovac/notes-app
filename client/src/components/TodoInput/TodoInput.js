@@ -12,7 +12,6 @@ export default function TodoInput(props) {
     setTodo("");
   };
 
-
   const handleChange = ({ target: { value } }) => {
     setTodo(value);
   };
