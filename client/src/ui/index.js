@@ -77,4 +77,22 @@ export const StyledTodoList = styled(TodoList)`
   li button:nth-of-type(1){
       margin-right:16px;
   }
+
+  li input{
+      width:350px;
+      height:30px;
+      border: 1px solid #000;
+      display: flex;
+      align-items: center;
+      margin-right: 16px;
+      border-radius: 8px;
+      padding-left: 12px;
+      font-size:16px;
+      background:#ccc;
+  }
+
+  li input::placeholder{
+      font-size:16px;
+      color:#000;
+  }
 `;
