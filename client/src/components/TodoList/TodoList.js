@@ -4,13 +4,30 @@ import { faCheck, faX } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 export default function TodoList(props) {
-  const { className, todos, filterTodos } = props;
+  const { className, todos, filterTodos, updateTodos } = props;
 
   const handleClick = async (id) => {
-    const deletedTodo = await axios.delete(
+    await axios.delete(
       `${process.env.REACT_APP_URL}/api/todos/${id}`
     );
     filterTodos(id);
+  };
+
+  const handleUpdate = async (id) => {
+    await axios.put(`${process.env.REACT_APP_URL}/api/todos/${id}`, {
+      title: value,
+    });
+    updateTodos(id, value);
+  };
+
+  const handleChange = ({ target: { value } }) => {
+    setValue(value);
+  };
+
+  const handleEditing = (title, id) => {
+    setIsEditing(!isEditing);
+    setEditingId(id);
+    setValue(title);
   };
 
   return (
