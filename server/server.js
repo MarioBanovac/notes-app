@@ -4,12 +4,14 @@ const express = require("express"); // importiranje express frameworka
 const cors = require("cors");
 const app = express(); // express instanca
 
+const routes = require("./routes/routes");
 const connectToDb = require("./config/db");
 
 connectToDb(); // funkcija s kojom se spajamo na mongodb
 
 app.use(cors());
 app.use(express.json());
+app.use("/api", routes);
 
 const PORT = process.env.PORT || 3000;
 
