@@ -4,6 +4,10 @@ const express = require("express"); // importiranje express frameworka
 const cors = require("cors");
 const app = express(); // express instanca
 
+const connectToDb = require("./config/db");
+
+connectToDb(); // funkcija s kojom se spajamo na mongodb
+
 app.use(cors());
 app.use(express.json());
 
